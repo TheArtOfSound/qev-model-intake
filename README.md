@@ -6,6 +6,11 @@
 - **Identity tag:** `qev-meeting-model-intake-2026-07-27`
 - **Source freeze:** Meeting Center production SPA (not a live rebuild)
 
+## Start here
+
+1. **[Step-by-step walkthrough](./walkthrough.html)** — thorough process understanding (recommended first visit)
+2. **[Live demo](./)** — frozen Model Intake SPA
+
 ## What this demonstrates
 
 Revision-specific approval dossiers for external AI models: pin a revision, record supplier evidence, bind private evaluation (encrypted), produce a signed decision package, detect tamper / revision mismatch.
