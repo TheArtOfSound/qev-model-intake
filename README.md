@@ -8,7 +8,7 @@
 
 ## Start here
 
-1. **[Step-by-step walkthrough](./walkthrough.html)** — thorough process understanding (recommended first visit)
+1. **[Simple walkthrough](./walkthrough.html)** — plain-English guide for first-time visitors
 2. **[Live demo](./)** — frozen Model Intake SPA
 
 ## What this demonstrates
