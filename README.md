@@ -1,31 +1,22 @@
-# QEV Model Intake — Public proof-of-concept demo
+# QEV demo (public)
 
-**Frozen meeting build** for commercial discovery and SBIR discussions.
+**Start here:** [Simple guide](./walkthrough.html)  
+**Then try:** [Live demo](./)
 
-- **Live:** https://theartofsound.github.io/qev-model-intake/
-- **Identity tag:** `qev-meeting-model-intake-2026-07-27`
-- **Source freeze:** Meeting Center production SPA (not a live rebuild)
+## In one sentence
 
-## Start here
+QEV helps you save a clear record of what you approved — the exact file or AI model version — so you can prove it later.
 
-1. **[Simple walkthrough](./walkthrough.html)** — plain-English guide for first-time visitors
-2. **[Live demo](./)** — frozen Model Intake SPA
+## Links
 
-## What this demonstrates
+- Guide: https://theartofsound.github.io/qev-model-intake/walkthrough.html  
+- Demo: https://theartofsound.github.io/qev-model-intake/  
+- Security / vault site: https://secure.imagineqira.com/
 
-Revision-specific approval dossiers for external AI models: pin a revision, record supplier evidence, bind private evaluation (encrypted), produce a signed decision package, detect tamper / revision mismatch.
+## Honest limits
 
-## What this does **not** claim
+This is a working demo. It does not claim an AI model is safe, and it is not finished enterprise software.
 
-- Model safety scoring or model-card truth  
-- Enterprise production readiness or formal third-party audit  
-- Legal notarization or production KMS  
+## Contact
 
-## Privacy
-
-Dossier construction and verification run in the browser. This demonstration does not upload the user’s source files, private evidence, or keys to Qira servers.
-
-## Related
-
-- Encryption vault / signed-envelope platform: https://secure.imagineqira.com/  
-- Contact: bryanleonard237@gmail.com · Qira LLC
+Bryan Leonard · Qira LLC · bryanleonard237@gmail.com

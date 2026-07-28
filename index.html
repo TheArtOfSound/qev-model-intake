@@ -4,29 +4,35 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="theme-color" content="#0b1220" />
-    <title>QEV Model Intake — Proof of Concept Demo</title>
+    <title>QEV — Demo</title>
     <meta
       name="description"
-      content="QEV Model Intake proof of concept: create portable, signed, revision-specific approval dossiers for external AI models. Runs in your browser — files are not uploaded by this demonstration."
+      content="QEV: save a clear record of what you approved — the exact file or AI model version — so you can check it later. Runs in your browser."
     />
     <meta name="robots" content="index,follow" />
     <link rel="canonical" href="https://theartofsound.github.io/qev-model-intake/" />
-    <meta property="og:title" content="QEV Model Intake — Proof of Concept" />
-    <meta property="og:description" content="Revision-specific approval dossiers for external AI models. Local browser demo — not production infrastructure." />
+    <meta property="og:title" content="QEV — Demo" />
+    <meta property="og:description" content="Save a clear record of what you approved, so you can prove it later." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://theartofsound.github.io/qev-model-intake/" />
     <style>
       #qev-poc-banner {
         position: sticky; top: 0; z-index: 99999;
         font-family: system-ui, -apple-system, Segoe UI, sans-serif;
-        background: #0b1220; color: #e8eef8;
-        border-bottom: 1px solid #2a364d;
-        padding: 10px 16px; font-size: 13px; line-height: 1.4;
+        background: #fff;
+        color: #141820;
+        border-bottom: 1px solid #e2e6ee;
+        padding: 12px 16px; font-size: 14px; line-height: 1.45;
+        box-shadow: 0 1px 0 rgba(0,0,0,.03);
       }
-      #qev-poc-banner strong { color: #7dd3a0; }
-      #qev-poc-banner a { color: #9ec1ff; }
-      #qev-poc-banner .row { max-width: 1100px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 8px 18px; align-items: baseline; justify-content: space-between; }
-      #qev-poc-banner .muted { color: #9aa8bf; }
+      #qev-poc-banner strong { color: #141820; }
+      #qev-poc-banner a { color: #1a56db; font-weight: 650; }
+      #qev-poc-banner .row {
+        max-width: 1100px; margin: 0 auto;
+        display: flex; flex-wrap: wrap; gap: 8px 16px;
+        align-items: center; justify-content: space-between;
+      }
+      #qev-poc-banner .muted { color: #5c6578; font-weight: 400; }
     </style>
     <script type="module" crossorigin src="./assets/index-r70yN4zl.js"></script>
     <link rel="stylesheet" crossorigin href="./assets/index-BTG55u5p.css" />
@@ -35,13 +41,12 @@
     <div id="qev-poc-banner" role="note">
       <div class="row">
         <div>
-          <strong>QEV Model Intake — proof of concept</strong>
-          <span class="muted"> · Frozen meeting build · Not enterprise production · Does not score model safety</span>
+          <strong>QEV demo</strong>
+          <span class="muted"> — save a checkable record of what you approved. New here?
+            <a href="./walkthrough.html">Read the 2-minute guide first</a>.</span>
         </div>
         <div class="muted">
-          Dossier work runs in your browser; this demo does not upload your files.
-          · <a href="./walkthrough.html"><strong>Simple walkthrough (start here)</strong></a>
-          · <a href="https://secure.imagineqira.com/">Vault / security posture</a>
+          Stays in your browser · not a finished enterprise product · does not rate AI “safety”
         </div>
       </div>
     </div>

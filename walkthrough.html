@@ -3,437 +3,209 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>QEV Model Intake — Simple walkthrough</title>
-  <meta name="description" content="A plain-language walkthrough of QEV Model Intake: what problem it solves, what you do step by step, and what the demo does and does not prove." />
+  <title>QEV — How this works (simple)</title>
+  <meta name="description" content="A simple guide to QEV: package an important file or AI model version so you can prove later what was approved." />
   <link rel="canonical" href="https://theartofsound.github.io/qev-model-intake/walkthrough.html" />
   <style>
-    :root {
-      --bg: #0b1220;
-      --panel: #121a2b;
-      --line: #2a364d;
-      --text: #e8eef8;
-      --muted: #9aa8bf;
-      --green: #7dd3a0;
-      --blue: #9ec1ff;
-      --amber: #f0c674;
-      --red: #f0a0a0;
-    }
     * { box-sizing: border-box; }
     body {
       margin: 0;
-      font-family: "IBM Plex Sans", system-ui, -apple-system, Segoe UI, sans-serif;
-      background: radial-gradient(circle at 10% 0%, #152038 0%, var(--bg) 45%);
-      color: var(--text);
-      line-height: 1.6;
-      font-size: 17px;
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      background: #f6f7f9;
+      color: #141820;
+      line-height: 1.55;
+      font-size: 18px;
     }
-    a { color: var(--blue); }
-    .wrap { max-width: 720px; margin: 0 auto; padding: 28px 18px 72px; }
-    .top {
-      display: flex; flex-wrap: wrap; gap: 10px 16px;
-      justify-content: space-between; align-items: center;
-      margin-bottom: 20px; padding-bottom: 14px;
-      border-bottom: 1px solid var(--line);
-    }
-    .badge {
-      font-size: 12px; font-weight: 700; letter-spacing: .06em;
-      text-transform: uppercase; color: var(--green);
-    }
-    h1 {
-      margin: 6px 0 12px;
-      font-size: clamp(1.7rem, 4vw, 2.15rem);
-      letter-spacing: -.02em;
-      line-height: 1.15;
-    }
-    .lead { color: var(--muted); font-size: 1.08rem; max-width: 40em; margin: 0 0 8px; }
-    .cta {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 12px 16px; border-radius: 10px;
-      background: #1d4ed8; color: #fff; text-decoration: none; font-weight: 700;
-      font-size: 15px;
-    }
-    .cta.secondary { background: transparent; border: 1px solid var(--line); color: var(--text); }
-    .cta-row { display: flex; flex-wrap: wrap; gap: 10px; margin: 18px 0 10px; }
-    h2 {
-      margin: 34px 0 10px;
-      font-size: 1.25rem;
-      letter-spacing: -.01em;
-      color: var(--text);
-      border-top: 1px solid var(--line);
-      padding-top: 28px;
-    }
-    h2:first-of-type { border-top: 0; padding-top: 8px; }
-    h3 { margin: 0 0 6px; font-size: 1.05rem; }
-    p { margin: 0 0 10px; }
-    .card {
-      background: var(--panel); border: 1px solid var(--line);
-      border-radius: 14px; padding: 16px 18px; margin: 12px 0;
-    }
-    .step {
-      display: grid; grid-template-columns: 42px 1fr; gap: 14px;
-      padding: 16px 0; border-bottom: 1px solid var(--line);
-    }
-    .step:last-child { border-bottom: 0; }
-    .num {
-      width: 36px; height: 36px; border-radius: 999px;
-      display: grid; place-items: center;
-      background: #1a2740; border: 1px solid var(--line);
-      font-weight: 800; color: var(--green); font-size: 14px;
-    }
-    .tip {
-      margin-top: 8px; padding: 10px 12px;
-      border-left: 3px solid var(--blue);
-      background: rgba(158, 193, 255, .07);
-      color: #d7e4ff; font-size: .95rem;
-    }
-    .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    @media (max-width: 720px) {
-      .grid2 { grid-template-columns: 1fr; }
-      body { font-size: 16px; }
-    }
-    ul { margin: 8px 0 0; padding-left: 1.2rem; }
-    li { margin: 6px 0; }
-    .ok { color: var(--green); }
-    .no { color: var(--red); }
-    .flow {
-      font-size: .98rem;
-      background: #0a101c; border: 1px solid var(--line);
-      border-radius: 12px; padding: 14px 16px; color: #d5deef;
-      line-height: 1.7;
-    }
-    .flow strong { color: var(--green); font-weight: 700; }
-    .muted { color: var(--muted); }
-    .callout {
-      border: 1px solid rgba(240, 198, 116, .35);
-      background: rgba(240, 198, 116, .08);
+    .wrap { max-width: 640px; margin: 0 auto; padding: 24px 18px 64px; }
+    h1 { font-size: 1.75rem; line-height: 1.2; margin: 0 0 12px; letter-spacing: -.02em; }
+    h2 { font-size: 1.15rem; margin: 28px 0 10px; }
+    p { margin: 0 0 12px; color: #2a3140; }
+    .muted { color: #5c6578; font-size: .95rem; }
+    .box {
+      background: #fff;
+      border: 1px solid #e2e6ee;
       border-radius: 12px;
-      padding: 14px 16px;
+      padding: 16px 18px;
       margin: 14px 0;
     }
+    .big {
+      font-size: 1.15rem;
+      font-weight: 650;
+      color: #141820;
+      margin: 0;
+    }
+    ol, ul { margin: 8px 0 0; padding-left: 1.25rem; }
+    li { margin: 8px 0; }
+    .btn {
+      display: inline-block;
+      background: #1a56db;
+      color: #fff !important;
+      text-decoration: none;
+      font-weight: 700;
+      padding: 14px 18px;
+      border-radius: 10px;
+      margin: 8px 8px 8px 0;
+    }
+    .btn2 {
+      display: inline-block;
+      background: #fff;
+      color: #141820 !important;
+      border: 1px solid #cfd6e4;
+      text-decoration: none;
+      font-weight: 650;
+      padding: 14px 18px;
+      border-radius: 10px;
+      margin: 8px 8px 8px 0;
+    }
+    .num {
+      display: inline-flex;
+      width: 28px; height: 28px;
+      border-radius: 999px;
+      background: #e8eefc;
+      color: #1a56db;
+      font-weight: 800;
+      font-size: 14px;
+      align-items: center;
+      justify-content: center;
+      margin-right: 8px;
+      flex: 0 0 auto;
+    }
+    .step {
+      display: flex;
+      gap: 4px;
+      align-items: flex-start;
+      padding: 12px 0;
+      border-bottom: 1px solid #eef1f6;
+    }
+    .step:last-child { border-bottom: 0; }
+    .step p { margin: 0; }
+    .warn {
+      background: #fff8e8;
+      border: 1px solid #f0d48a;
+      border-radius: 12px;
+      padding: 14px 16px;
+      margin: 16px 0;
+      color: #5a4a20;
+      font-size: .95rem;
+    }
     footer {
-      margin-top: 40px; padding-top: 16px;
-      border-top: 1px solid var(--line);
-      color: var(--muted); font-size: .92rem;
+      margin-top: 36px;
+      padding-top: 16px;
+      border-top: 1px solid #e2e6ee;
+      color: #5c6578;
+      font-size: .9rem;
     }
-    code {
-      font-family: ui-monospace, Menlo, monospace;
-      font-size: .88em; color: #cfe0ff;
-      background: rgba(255,255,255,.04);
-      padding: 1px 5px; border-radius: 4px;
-    }
+    a { color: #1a56db; }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <div class="top">
-      <div class="badge">Simple guide · first time</div>
-      <a class="cta secondary" href="./">Open the demo →</a>
-    </div>
-
-    <h1>QEV in plain English</h1>
-    <p class="lead">
-      This page explains the demo in everyday words.
-      Read it first if you are new. Then open the live demo and click along.
-    </p>
-    <div class="cta-row">
-      <a class="cta" href="./">Open the live demo</a>
-      <a class="cta secondary" href="https://secure.imagineqira.com/">Related security site</a>
-    </div>
-    <p class="muted" style="font-size:.95rem;">
-      Everything important happens in your browser.
-      This demo is not meant to upload your files to our servers.
-      It is a working prototype — not a finished enterprise product.
-      It does <strong>not</strong> say whether an AI model is “safe.”
+    <p class="muted" style="margin-bottom:8px;">Simple guide · no jargon required</p>
+    <h1>What is QEV, in plain words?</h1>
+    <p class="big">
+      QEV helps you save a clear record of what you approved —
+      so later you can prove it was that file or that AI model version,
+      not “something with a similar name.”
     </p>
 
-    <h2>What problem is this for?</h2>
-    <div class="card">
-      <p>
-        Companies often say “we approved that AI model” — but they mean a
-        <strong>name</strong>, not a specific version.
-      </p>
-      <p>
-        Later, nobody can answer simple questions:
-      </p>
+    <div style="margin: 20px 0 8px;">
+      <a class="btn" href="./">Try the demo</a>
+      <a class="btn2" href="#how">See the steps</a>
+    </div>
+    <p class="muted">Runs in your browser. This demo is not trying to upload your files to us.</p>
+
+    <h2>Why anyone would care</h2>
+    <div class="box">
+      <p>Teams say “we approved that AI model.” Months later, nobody is sure:</p>
       <ul>
-        <li>Which exact version did we review?</li>
-        <li>What proof did we have at the time?</li>
-        <li>What internal testing stayed private?</li>
-        <li>What was allowed or blocked?</li>
-        <li>If the model changed, does the old approval still count?</li>
+        <li>Which version did we actually look at?</li>
+        <li>What evidence did we have?</li>
+        <li>What did we allow or block?</li>
+        <li>Did the model change after we said yes?</li>
+      </ul>
+      <p style="margin-bottom:0;"><strong>QEV’s job:</strong> put that answer in one package you can re-check later.</p>
+    </div>
+
+    <h2>What you get</h2>
+    <div class="box">
+      <p style="margin:0;">
+        A downloadable package (like a sealed folder) that includes:
+        the thing you reviewed, the notes you chose to attach,
+        the decision, and a way to check if anything changed.
+      </p>
+    </div>
+
+    <h2 id="how">How to try it (about 3 minutes)</h2>
+    <div class="box">
+      <div class="step">
+        <span class="num">1</span>
+        <p><strong>Open the demo.</strong> <a href="./">Click here</a>.</p>
+      </div>
+      <div class="step">
+        <span class="num">2</span>
+        <p><strong>Load the sample project</strong> (called Sunline), or drop in any zip file.</p>
+      </div>
+      <div class="step">
+        <span class="num">3</span>
+        <p><strong>Build the package</strong> and download it.</p>
+      </div>
+      <div class="step">
+        <span class="num">4</span>
+        <p><strong>Check it.</strong> You should see that it still matches and the seal is good.</p>
+      </div>
+      <div class="step">
+        <span class="num">5</span>
+        <p><strong>Try “tamper.”</strong> Change something on purpose — the check should fail. That failure is the point.</p>
+      </div>
+    </div>
+
+    <h2>The business version (AI models)</h2>
+    <div class="box">
+      <p>Same idea, for outside AI models your team wants to use:</p>
+      <ul>
+        <li>Lock the <strong>exact version</strong> (not just a product name)</li>
+        <li>Keep public docs with the record</li>
+        <li>Keep private test notes private (sealed inside)</li>
+        <li>Record the decision: no / limited use / later approval</li>
+        <li>If a new version shows up later, the old approval does <strong>not</strong> silently transfer</li>
       </ul>
       <p class="muted" style="margin-bottom:0;">
-        Today the answer is usually scattered across email, chat, docs, and websites.
-        That is hard to audit and easy to get wrong.
+        Demo examples: one model is rejected (not enough proof), another is “sandbox only” (limited use).
       </p>
     </div>
 
-    <h2>What QEV is (one sentence)</h2>
-    <div class="card">
-      <p style="margin:0; font-size:1.08rem;">
-        <strong>QEV builds a signed package around an important file or AI model version</strong>
-        so you can later check it is still the same thing — and see the proof that went with the decision.
-      </p>
-    </div>
-    <div class="callout">
-      Think of it like a sealed envelope for a decision:
-      what was reviewed, what evidence was included, what was kept private,
-      and what the final call was — all tied to one exact version.
-    </div>
-
-    <h2>The flow (big picture)</h2>
-    <div class="flow">
-      1. Start with a file or AI model<br />
-      2. Lock in the <strong>exact version</strong><br />
-      3. Attach public proof (docs, supplier info)<br />
-      4. Attach private notes if needed (encrypted)<br />
-      5. Record the decision (for example: reject or sandbox only)<br />
-      6. Save a signed package you can share and re-check later
-    </div>
-
-    <h2>What it can and cannot prove</h2>
-    <div class="grid2">
-      <div class="card">
-        <h3 class="ok">It can help show…</h3>
-        <ul>
-          <li>The package still matches what was signed</li>
-          <li>The signature checks out</li>
-          <li>If something inside was changed</li>
-          <li>If private notes are included but locked</li>
-          <li>That a new version is not the same as the old approved one</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3 class="no">It does not claim…</h3>
-        <ul>
-          <li>That a model is safe or good</li>
-          <li>That a model’s public description is true</li>
-          <li>That this is ready for big-company production use</li>
-          <li>That a lawyer would treat it as a notary seal</li>
-          <li>That an outside security firm audited it</li>
-        </ul>
-      </div>
-    </div>
-
-    <h2>Two parts of the demo</h2>
-    <div class="card">
-      <div class="step">
-        <div class="num">A</div>
-        <div>
-          <h3>Part 1 — How packaging works</h3>
-          <p class="muted" style="margin:0;">
-            Uses a small sample project (“Sunline”).
-            Goal: show package → check → break it on purpose.
-          </p>
-          <div class="tip">This part is only the “how.” It is not the main product story.</div>
-        </div>
-      </div>
-      <div class="step">
-        <div class="num">B</div>
-        <div>
-          <h3>Part 2 — AI model intake (the real business use)</h3>
-          <p class="muted" style="margin:0;">
-            Same idea, applied to outside AI models:
-            incomplete proof → reject; better docs → sandbox only.
-          </p>
-          <div class="tip">This is the main commercial story: version-specific approval records.</div>
-        </div>
-      </div>
-    </div>
-
-    <h2>Part 1 — click along (Sunline)</h2>
-    <div class="card">
-      <div class="step">
-        <div class="num">1</div>
-        <div>
-          <h3>Open the demo</h3>
-          <p class="muted" style="margin:0;">
-            Go to the <a href="./">live demo</a>.
-            Look for a note that work stays in your browser.
-          </p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="num">2</div>
-        <div>
-          <h3>Load the Sunline sample</h3>
-          <p class="muted" style="margin:0;">
-            Use the built-in sample (or drop in your own zip file).
-            You should see a normal project: pages, scripts, folders — nothing “special” yet.
-          </p>
-          <div class="tip">Say: “This is just a regular set of files.”</div>
-        </div>
-      </div>
-      <div class="step">
-        <div class="num">3</div>
-        <div>
-          <h3>Look at what is included</h3>
-          <p class="muted" style="margin:0;">
-            Browse the file list. The point is simple:
-            QEV tracks the real contents, not a vague product name.
-          </p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="num">4</div>
-        <div>
-          <h3>Build the package</h3>
-          <p class="muted" style="margin:0;">
-            Create the QEV dossier and download it.
-            That file is the portable record (a <code>.qevpack</code>).
-          </p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="num">5</div>
-        <div>
-          <h3>Check the package</h3>
-          <p class="muted" style="margin:0;">
-            Open verify / simple view. Walk the rows slowly:
-          </p>
-          <ul>
-            <li><strong>Signature</strong> — did the seal check out?</li>
-            <li><strong>Integrity</strong> — is the content still the same?</li>
-            <li><strong>Private evidence</strong> — are locked notes present?</li>
-          </ul>
-          <div class="tip">These are separate checks. One “green light” is not enough in real life.</div>
-        </div>
-      </div>
-      <div class="step">
-        <div class="num">6</div>
-        <div>
-          <h3>Break it on purpose</h3>
-          <p class="muted" style="margin:0;">
-            Use the tamper demo. One changed file should fail the check.
-            That failure is the feature.
-          </p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="num">7</div>
-        <div>
-          <h3>Optional: revoked issuer</h3>
-          <p class="muted" style="margin:0;">
-            Sometimes content is still intact, but you no longer trust who signed it.
-            QEV can show that difference instead of hiding it.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <h2>Part 2 — AI model intake (why this matters for business)</h2>
-    <div class="card">
-      <div class="step">
-        <div class="num">1</div>
-        <div>
-          <h3>Switch the story</h3>
-          <div class="tip">
-            “Same packaging idea — now for outside AI models your team wants to use.”
-          </div>
-        </div>
-      </div>
-      <div class="step">
-        <div class="num">2</div>
-        <div>
-          <h3>Tiny GPT-2 → rejected</h3>
-          <p class="muted" style="margin:0;">
-            Lock the exact version. Public proof is incomplete.
-            Decision: <strong>rejected</strong>.
-          </p>
-          <div class="tip">
-            This is not “the model is evil.” It means: not enough recorded proof under the policy.
-          </div>
-        </div>
-      </div>
-      <div class="step">
-        <div class="num">3</div>
-        <div>
-          <h3>SmolLM2 → sandbox only</h3>
-          <p class="muted" style="margin:0;">
-            Better documentation — still not full production approval.
-            Decision: <strong>sandbox only</strong> (limited use).
-          </p>
-          <div class="tip">Real orgs need middle outcomes, not only yes/no.</div>
-        </div>
-      </div>
-      <div class="step">
-        <div class="num">4</div>
-        <div>
-          <h3>Private testing stays private</h3>
-          <p class="muted" style="margin:0;">
-            Internal notes can be sealed inside the package.
-            Outsiders can see that private evidence exists without reading it.
-          </p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="num">5</div>
-        <div>
-          <h3>New version = new review</h3>
-          <p class="muted" style="margin:0;">
-            If the model version changes, yesterday’s approval does not silently transfer.
-            The old package still matches the old version.
-            The new version needs its own decision.
-          </p>
-          <div class="tip">This is the core business value in one sentence.</div>
-        </div>
-      </div>
-    </div>
-
-    <h2>Words you will see (decoded)</h2>
-    <div class="card">
-      <ul>
-        <li><strong>Dossier / package</strong> — the signed record you download</li>
-        <li><strong>Revision / version pin</strong> — the exact model or build you reviewed</li>
-        <li><strong>Integrity</strong> — “the bits still match”</li>
-        <li><strong>Signature</strong> — “the seal checks with the expected key”</li>
-        <li><strong>Revoked</strong> — “we no longer trust that signer”</li>
-        <li><strong>Sandbox only</strong> — limited / non-production use</li>
-        <li><strong>Proof of concept</strong> — working demo, not finished production software</li>
-      </ul>
-    </div>
-
-    <h2>A 5-minute path (if you are short on time)</h2>
-    <div class="card">
-      <ol>
-        <li>Explain the “name is not a version” problem (20 seconds)</li>
-        <li>Sunline: load → build → verify → tamper (~90 seconds)</li>
-        <li>Models: rejected vs sandbox only + private notes + new version rule (~2 minutes)</li>
-        <li>Ask: does your team already struggle with outside AI model approvals? (30 seconds)</li>
-      </ol>
-      <p class="muted" style="margin:0;">
-        If yes, talk pilot next steps. If no, leave the links — do not force it.
-      </p>
+    <div class="warn">
+      <strong>Please don’t over-read this demo.</strong><br />
+      It does <em>not</em> mean the AI is safe or unsafe.
+      It does <em>not</em> mean this is finished enterprise software.
+      It means: “here is a clear, checkable record of what was decided about this exact version.”
     </div>
 
     <h2>Who this is for</h2>
-    <div class="card">
+    <div class="box">
       <ul>
-        <li>Teams that pull open models from the internet</li>
-        <li>Security or risk people who must reconstruct decisions later</li>
-        <li>Groups that keep eval notes private but still need a clear record</li>
-        <li>Research and SBIR conversations about dual-use tooling</li>
+        <li>Teams that use AI models from the internet</li>
+        <li>People who get asked later: “what exactly did we approve?”</li>
+        <li>Anyone tired of answers living only in email and chat</li>
       </ul>
-      <p class="muted" style="margin:0;">
-        It does not need to replace your model host or registry.
-        It aims to make the <strong>approval record</strong> portable and checkable.
+    </div>
+
+    <h2>If it helps your team</h2>
+    <div class="box">
+      <p style="margin:0;">
+        We’re looking for a small pilot: a few real models, one simple approval policy,
+        and clear records your team can keep.
+        Email <a href="mailto:bryanleonard237@gmail.com?subject=QEV%20pilot">bryanleonard237@gmail.com</a>.
       </p>
     </div>
 
-    <div class="cta-row" style="margin-top:28px;">
-      <a class="cta" href="./">Try the demo now</a>
-      <a class="cta secondary" href="mailto:bryanleonard237@gmail.com?subject=QEV%20demo%20question">Email a question</a>
+    <div style="margin-top:24px;">
+      <a class="btn" href="./">Open the demo</a>
     </div>
 
     <footer>
-      <p><strong style="color:var(--text);">Bryan Leonard · Qira LLC</strong></p>
-      <p>bryanleonard237@gmail.com · 602-614-4292</p>
-      <p>
-        Demo: <a href="./">Model Intake</a>
-        · Guide: this page
-        · Security site: <a href="https://secure.imagineqira.com/">secure.imagineqira.com</a>
-      </p>
-      <p>Working prototype. Not a model-safety score. Not a claim of production readiness.</p>
+      Bryan Leonard · Qira LLC · bryanleonard237@gmail.com · 602-614-4292<br />
+      Working demo. Built for real workflows, not jargon.
     </footer>
   </div>
 </body>
