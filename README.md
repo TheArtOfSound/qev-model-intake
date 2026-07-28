@@ -1,22 +1,32 @@
-# QEV demo (public)
+# QEV Model Intake — public product site
 
-**Start here:** [Simple guide](./walkthrough.html)  
-**Then try:** [Live demo](./)
+This is not “a demo page with a banner.”
 
-## In one sentence
+It is a **product pitch into real-world use**, with a working browser flow as proof.
 
-QEV helps you save a clear record of what you approved — the exact file or AI model version — so you can prove it later.
+## Live
 
-## Links
+| Page | URL |
+| --- | --- |
+| **Product story (start here)** | https://theartofsound.github.io/qev-model-intake/ |
+| **Product demo** | https://theartofsound.github.io/qev-model-intake/demo.html |
+| **How to try (3 min)** | https://theartofsound.github.io/qev-model-intake/how-to-try.html |
 
-- Guide: https://theartofsound.github.io/qev-model-intake/walkthrough.html  
-- Demo: https://theartofsound.github.io/qev-model-intake/  
-- Security / vault site: https://secure.imagineqira.com/
+## Site map
 
-## Honest limits
+```
+index.html       Real-world problem, workflow, use cases, pilot, CTAs
+demo.html        Frozen working product flow (SPA)
+how-to-try.html  Short click-along for the demo
+styles.css       Shared product styling
+assets/          Frozen app bundle
+```
 
-This is a working demo. It does not claim an AI model is safe, and it is not finished enterprise software.
+## Product one-liner
+
+Record the exact AI model version, the evidence you had, the limits you set,
+and the decision — in one package your team can open again later.
 
 ## Contact
 
-Bryan Leonard · Qira LLC · bryanleonard237@gmail.com
+Bryan Leonard · Qira LLC · bryanleonard237@gmail.com · 602-614-4292
