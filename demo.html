@@ -3,12 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <meta name="theme-color" content="#0b1220" />
+    <meta name="theme-color" content="#111111" />
     <title>QEV — Product demo</title>
-    <meta
-      name="description"
-      content="Build and check an approval package in your browser. Part of QEV Model Intake."
-    />
+    <meta name="description" content="Build and check an approval package in your browser." />
     <link rel="canonical" href="https://theartofsound.github.io/qev-model-intake/demo.html" />
     <style>
       #qev-bar {
@@ -16,41 +13,48 @@
         top: 0;
         z-index: 99999;
         font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-        background: #fff;
-        color: #12151c;
-        border-bottom: 1px solid #e4e8ef;
-        padding: 10px 16px;
-        font-size: 14px;
-        line-height: 1.4;
+        background: #fafaf8;
+        color: #1a1a1a;
+        border-bottom: 1px solid #d9d9d9;
+        padding: 0.7rem 1rem;
+        font-size: 0.95rem;
+        line-height: 1.45;
       }
       #qev-bar .row {
-        max-width: 1100px;
+        max-width: 68rem;
         margin: 0 auto;
         display: flex;
         flex-wrap: wrap;
-        gap: 8px 16px;
+        gap: 0.5rem 1rem;
         align-items: center;
         justify-content: space-between;
       }
-      #qev-bar a { color: #1d4ed8; font-weight: 650; text-decoration: none; }
-      #qev-bar a:hover { text-decoration: underline; }
-      #qev-bar .muted { color: #6b7385; }
-      #qev-bar strong { font-weight: 750; }
+      #qev-bar a {
+        color: #0b57d0;
+        font-weight: 650;
+        text-underline-offset: 0.12em;
+      }
+      #qev-bar a:focus-visible {
+        outline: 3px solid #0b57d0;
+        outline-offset: 2px;
+      }
+      #qev-bar .muted { color: #5c5c5c; }
+      #qev-bar strong { font-weight: 700; }
     </style>
     <script type="module" crossorigin src="./assets/index-r70yN4zl.js"></script>
     <link rel="stylesheet" crossorigin href="./assets/index-BTG55u5p.css" />
   </head>
   <body>
-    <div id="qev-bar" role="navigation" aria-label="Product context">
+    <div id="qev-bar" role="navigation" aria-label="Site">
       <div class="row">
         <div>
-          <strong>QEV product demo</strong>
-          <span class="muted"> · Build a package, check it, see what changes when content is altered.</span>
+          <strong>Product demo</strong>
+          <span class="muted"> — build a package, check it, then see what happens when content changes.</span>
         </div>
         <div class="muted">
-          <a href="./">← Why teams use this</a>
-          · <a href="./how-to-try.html">3-minute how-to</a>
-          · Stays in your browser
+          <a href="./">Why teams use this</a>
+          · <a href="./how-to-try.html">How to try</a>
+          · Work stays in your browser
         </div>
       </div>
     </div>

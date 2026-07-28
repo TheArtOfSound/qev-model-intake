@@ -3,354 +3,259 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>QEV — Approval records for the AI models your team actually uses</title>
+  <title>QEV Model Intake — approval records for outside AI models</title>
   <meta
     name="description"
-    content="QEV helps teams record which exact AI model version was approved, with what evidence and limits — so later you can prove what was decided, not guess from chat history."
+    content="QEV helps teams record which exact AI model version was approved, with what evidence and limits, so the decision can be checked later."
   />
   <link rel="canonical" href="https://theartofsound.github.io/qev-model-intake/" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://theartofsound.github.io/qev-model-intake/" />
-  <meta property="og:title" content="QEV — Approval records for the AI models your team actually uses" />
-  <meta property="og:description" content="Stop approving models by name. Record the exact version, evidence, private notes, and decision in one package you can re-check later." />
+  <meta property="og:title" content="QEV Model Intake — approval records for outside AI models" />
+  <meta property="og:description" content="Record the exact model version, the evidence you used, the limits you set, and the decision—in one package you can open again later." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,500;8..60,650;8..60,700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
-  <header class="nav">
-    <div class="wrap nav-inner">
-      <a class="brand" href="./">QEV <span>Model Intake</span></a>
-      <nav class="nav-links" aria-label="Primary">
-        <a class="hide-sm" href="#problem">Problem</a>
-        <a class="hide-sm" href="#how">How it works</a>
-        <a class="hide-sm" href="#use">Who uses it</a>
-        <a class="hide-sm" href="#pilot">Pilot</a>
-        <a href="./demo.html">Try it</a>
-        <a class="btn btn-primary" href="mailto:bryanleonard237@gmail.com?subject=QEV%20Model%20Intake%20pilot">Talk to us</a>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap site-header-inner">
+      <a class="logo" href="./">QEV<em>Model Intake</em></a>
+      <nav class="nav" aria-label="Primary">
+        <a class="optional" href="#problem">Problem</a>
+        <a class="optional" href="#how">How it works</a>
+        <a class="optional" href="#who">Who it’s for</a>
+        <a class="optional" href="#pilot">Pilot</a>
+        <a href="./demo.html">Try the product</a>
+        <a href="mailto:bryanleonard237@gmail.com?subject=QEV%20Model%20Intake">Contact</a>
       </nav>
     </div>
   </header>
 
-  <main>
-    <!-- HERO: real-world outcome, not "demo" -->
-    <section class="hero">
-      <div class="wrap">
-        <div class="eyebrow">For teams bringing outside AI models into real work</div>
-        <h1>Stop approving AI models by name.</h1>
-        <p class="hero-lead">
-          Record the exact version, the evidence you had, the limits you set,
-          and the decision — in one package your team can open again later.
+  <main id="main">
+    <header class="hero">
+      <div class="wrap prose">
+        <h1>Approval records for the AI models your team actually uses</h1>
+        <p class="lede">
+          Most teams approve outside models by name. QEV records the exact version,
+          the evidence you used, the limits you set, and the decision—so later you
+          can show what was decided, not reconstruct it from chat.
         </p>
-        <div class="btn-row">
-          <a class="btn btn-primary" href="#pilot">Start a small pilot</a>
-          <a class="btn btn-secondary" href="./demo.html">See how a package is built</a>
+        <div class="actions">
+          <a class="button button-primary" href="#pilot">Discuss a pilot</a>
+          <a class="button button-secondary" href="./demo.html">Try the product flow</a>
         </div>
-        <p class="hero-note">
-          Built for AI leads, security, and risk partners who already feel the
-          mess of chat threads and shared drives — not for a room of cryptographers.
+        <p class="small">
+          For people who ship work with outside models—not a showcase of cryptography.
         </p>
       </div>
-    </section>
+    </header>
 
-    <!-- PROBLEM -->
-    <section id="problem">
-      <div class="wrap">
-        <p class="section-kicker">The real-world problem</p>
-        <h2>Someone says “we already approved that model.” Nobody can prove what that meant.</h2>
-        <p class="section-copy">
-          Outside models show up fast: open downloads, vendor APIs, agent tools.
-          Approval usually lives in email, chat, or a wiki page. That works until
-          an incident, an audit, a customer question, or a quiet model update.
+    <section class="section" id="problem" aria-labelledby="problem-title">
+      <div class="wrap prose">
+        <p class="section-label">The problem</p>
+        <h2 id="problem-title">“We already approved that model” is not a record.</h2>
+        <p>
+          Outside models enter the building quickly: open downloads, vendor systems,
+          agent tools. The “yes” usually lives in email, Slack, or a wiki page. That
+          works until someone asks a hard question after the fact.
         </p>
-        <div class="grid-3">
-          <article class="card">
-            <h3>Name ≠ version</h3>
-            <p>
-              “We use Llama / the Hugging Face model” is not a record.
-              The bits can change under the same product name.
-            </p>
-          </article>
-          <article class="card">
-            <h3>Evidence is scattered</h3>
-            <p>
-              Public docs on a website. Test notes in Drive.
-              The yes/no in Slack. Later, nobody can rebuild the package.
-            </p>
-          </article>
-          <article class="card">
-            <h3>Quiet drift</h3>
-            <p>
-              A new version lands. Yesterday’s approval is treated as still valid.
-              No clear line that says “this is different — review it again.”
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- BEFORE / AFTER -->
-    <section class="soft" id="change">
-      <div class="wrap">
-        <p class="section-kicker">What changes with QEV</p>
-        <h2>From hope to a record you can hand someone.</h2>
-        <div class="compare" style="margin-top:8px;">
-          <article class="card bad">
-            <div class="label">How many teams work today</div>
-            <h3>Approval by conversation</h3>
-            <ul>
-              <li>Model found on the internet or from a vendor</li>
-              <li>“Looks fine” in chat</li>
-              <li>Notes wherever someone saved them</li>
-              <li>Months later: “I think we approved that”</li>
-            </ul>
-          </article>
-          <article class="card good">
-            <div class="label">With QEV Model Intake</div>
-            <h3>Approval as a package</h3>
-            <ul>
-              <li>Exact version locked in</li>
-              <li>Public evidence kept with the decision</li>
-              <li>Private notes sealed if needed</li>
-              <li>Months later: open the package and re-check it</li>
-            </ul>
-          </article>
-        </div>
-        <p class="section-copy" style="margin-top:20px; margin-bottom:0;">
-          <strong>One line for buyers:</strong>
-          If you cannot hand someone a single package that shows which model version
-          was approved, with what evidence and limits, you do not have model intake —
-          you have hope.
+        <p>
+          Which version did you review? What evidence did you have? What was allowed
+          or blocked? If the model changed under the same name, does yesterday’s
+          approval still count?
         </p>
-      </div>
-    </section>
-
-    <!-- HOW IT WORKS -->
-    <section id="how">
-      <div class="wrap">
-        <p class="section-kicker">How it works</p>
-        <h2>A simple workflow your team can actually run.</h2>
-        <p class="section-copy">
-          No need to replace Hugging Face, your registry, or your ticketing tool.
-          QEV sits where the decision is made and produces a portable record.
-        </p>
-        <div class="steps">
-          <div class="step">
-            <div class="step-num">1</div>
-            <div>
-              <h3>Start with the thing you care about</h3>
-              <p>An outside AI model, or any important project package you need to approve.</p>
-            </div>
-          </div>
-          <div class="step">
-            <div class="step-num">2</div>
-            <div>
-              <h3>Lock the exact version</h3>
-              <p>Not “the model.” The specific version your people actually reviewed.</p>
-            </div>
-          </div>
-          <div class="step">
-            <div class="step-num">3</div>
-            <div>
-              <h3>Attach what you used to decide</h3>
-              <p>Public docs and supplier materials. Private test notes can stay sealed inside.</p>
-            </div>
-          </div>
-          <div class="step">
-            <div class="step-num">4</div>
-            <div>
-              <h3>Record the decision and keep the package</h3>
-              <p>
-                Rejected, limited use, or approved for a path you define.
-                Later you can check that the package still matches and see what was decided.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- USE CASES -->
-    <section class="soft" id="use">
-      <div class="wrap">
-        <p class="section-kicker">Real-world use</p>
-        <h2>Where this shows up at work.</h2>
-        <div class="card" style="padding: 8px 22px;">
-          <div class="use">
-            <div class="use-role">AI / platform lead</div>
-            <p>
-              Teams pull open models into prototypes every week.
-              You need a light process that still leaves a paper trail when something graduates.
-            </p>
-          </div>
-          <div class="use">
-            <div class="use-role">Security / AppSec</div>
-            <p>
-              Third-party models are software supply chain.
-              You want a clear package for review without inventing another mega-platform.
-            </p>
-          </div>
-          <div class="use">
-            <div class="use-role">Risk / compliance partner</div>
-            <p>
-              When someone asks “what did we approve?”, you need a record —
-              not a scavenger hunt across five tools.
-            </p>
-          </div>
-          <div class="use">
-            <div class="use-role">Research &amp; government programs</div>
-            <p>
-              Same need, dual use: a practical way to bind decisions to exact AI assets
-              without claiming a magic safety score.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROOF / DEMO as product proof, not the whole product -->
-    <section id="see">
-      <div class="wrap proof">
-        <div class="proof-panel">
-          <p class="section-kicker" style="color:#8b9bb8;">See it for yourself</p>
-          <h2>Try the working product flow in your browser.</h2>
+        <div class="note">
           <p>
-            Build a sample package, check it, and see what happens when something changes.
-            Then look at how the same idea applies to AI model intake.
+            If you cannot hand someone a single package that answers those questions,
+            you do not have model intake. You have hope.
           </p>
-          <ul class="checklist">
-            <li>Load a sample project or your own file</li>
-            <li>Build an approval package</li>
-            <li>Check that it still matches</li>
-            <li>See a failed check when content changes</li>
-            <li>Walk model examples: rejected vs limited use</li>
+        </div>
+        <div class="split">
+          <div>
+            <h3>What goes wrong</h3>
+            <ul>
+              <li>Names hide version changes</li>
+              <li>Docs, notes, and decisions live in different tools</li>
+              <li>Private testing cannot be pasted into a public model page</li>
+              <li>Updates arrive quietly; old approvals stick around</li>
+            </ul>
+          </div>
+          <div>
+            <h3>What people try instead</h3>
+            <ul>
+              <li>Long chat threads that nobody can find later</li>
+              <li>PDFs that cannot be checked machine-side</li>
+              <li>A registry entry that never leaves the platform</li>
+              <li>“Trust the host” without an internal decision trail</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="how" aria-labelledby="how-title">
+      <div class="wrap prose">
+        <p class="section-label">How it works</p>
+        <h2 id="how-title">A simple path from review to a package you can keep.</h2>
+        <p>
+          QEV does not need to replace the place you download models or the system
+          where you track tickets. It produces the approval package that sits next
+          to the work.
+        </p>
+        <ol class="process">
+          <li>
+            <strong>Start with what you care about</strong>
+            An outside AI model, or another important package you need to approve.
+          </li>
+          <li>
+            <strong>Lock the exact version</strong>
+            Not a brand name—the specific version your people actually reviewed.
+          </li>
+          <li>
+            <strong>Attach the evidence you used</strong>
+            Public materials stay public. Private notes can stay sealed inside the package.
+          </li>
+          <li>
+            <strong>Record the decision and keep the package</strong>
+            No, limited use, or a path you define. Later, open it and check that it still matches.
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" id="who" aria-labelledby="who-title">
+      <div class="wrap prose">
+        <p class="section-label">Who this is for</p>
+        <h2 id="who-title">People who already feel the mess.</h2>
+        <ul class="roles">
+          <li>
+            <div class="who">AI or platform lead</div>
+            <p>Teams pull models into prototypes every week. You need a light process that still leaves a trail when something becomes real.</p>
+          </li>
+          <li>
+            <div class="who">Security</div>
+            <p>Third-party models are part of your supply chain. You want a clear package for review without standing up another platform project.</p>
+          </li>
+          <li>
+            <div class="who">Risk or compliance partner</div>
+            <p>When someone asks what was approved, you need a record—not a scavenger hunt across five tools.</p>
+          </li>
+          <li>
+            <div class="who">Research and public-sector partners</div>
+            <p>Same operational need in dual-use settings: bind decisions to exact assets without selling a magic safety score.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="see" aria-labelledby="see-title">
+      <div class="wrap prose">
+        <p class="section-label">See the flow</p>
+        <h2 id="see-title">Try the working product in your browser.</h2>
+        <p>
+          The demo is proof of the workflow, not a substitute for a pilot on your models.
+          You can build a sample package, check it, and watch what happens when something changes.
+        </p>
+        <div class="actions">
+          <a class="button button-primary" href="./demo.html">Open the product demo</a>
+          <a class="button button-secondary" href="./how-to-try.html">Three-minute how-to</a>
+        </div>
+        <p class="small">
+          Work stays in your browser for this evaluation.
+          Related sealed-package work also lives at
+          <a href="https://secure.imagineqira.com/">secure.imagineqira.com</a>.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="pilot" aria-labelledby="pilot-title">
+      <div class="wrap prose">
+        <p class="section-label">How teams adopt it</p>
+        <h2 id="pilot-title">A small pilot, on models you already care about.</h2>
+        <p>
+          We are not asking anyone to “rip and replace.” The useful path is a short pilot:
+          a handful of real models, one clear approval policy, and packages your stakeholders can open.
+        </p>
+        <div class="panel">
+          <h3>External Model Intake Pilot</h3>
+          <ul>
+            <li>About six weeks</li>
+            <li>Three to five models already in play</li>
+            <li>One policy path for “enough evidence”</li>
+            <li>Signed packages and plain-language decision reports</li>
           </ul>
-          <div class="btn-row">
-            <a class="btn btn-primary" href="./demo.html">Open the product demo</a>
-            <a class="btn btn-secondary" href="./how-to-try.html">3-minute how-to</a>
+          <p>
+            Founding pilot conversations usually start in the
+            <strong>$7,500–$15,000</strong> range, depending on scope.
+            That is a starting point for discussion, not a public price list.
+          </p>
+          <div class="actions">
+            <a class="button button-primary" href="mailto:bryanleonard237@gmail.com?subject=QEV%20Model%20Intake%20pilot&body=Hi%20Bryan%2C%0A%0AWe%20want%20to%20discuss%20a%20QEV%20Model%20Intake%20pilot.%0A%0AOrganization%3A%0AModels%20in%20use%3A%0AWho%20owns%20approval%20today%3A%0A">Email about a pilot</a>
+            <a class="button button-secondary" href="./demo.html">Try the flow first</a>
           </div>
         </div>
-        <div class="card">
-          <h3>What you are looking at</h3>
-          <p>
-            A working flow teams can evaluate.
-            It is solid enough for design-partner pilots and technical review.
-          </p>
-          <p>
-            It is <strong>not</strong> a claim that your organization is production-ready
-            the moment you click download — that is what a pilot is for.
-          </p>
-          <p style="margin-bottom:0;">
-            Related security work (sealed notes, checkable packages) also lives at
-            <a href="https://secure.imagineqira.com/">secure.imagineqira.com</a>.
-          </p>
-        </div>
+        <p class="small" style="margin-top:1.25rem;">
+          Research collaborators and SBIR-style partners are welcome too.
+          The product problem is operational; the research problem is how to make
+          these records durable and dual-use without overclaiming.
+        </p>
       </div>
     </section>
 
-    <!-- PILOT -->
-    <section class="soft" id="pilot">
-      <div class="wrap">
-        <p class="section-kicker">Adoption path</p>
-        <h2>A small pilot beats a big platform project.</h2>
-        <div class="pilot">
-          <div class="card">
-            <h3>QEV External Model Intake Pilot</h3>
-            <p>
-              One organization. A handful of real models. One clear approval policy.
-              You leave with signed records and a workflow your team can keep using.
-            </p>
-            <ul>
-              <li>About 6 weeks</li>
-              <li>3–5 models your team already cares about</li>
-              <li>One policy path (what “enough evidence” means for you)</li>
-              <li>Packages + simple decision reports your stakeholders can read</li>
-            </ul>
-            <p class="price">Starting conversation: $7,500–$15,000</p>
-            <p class="fine">
-              Directional range for founding pilots — not a public price list.
-              Scope follows your models and review process.
-            </p>
-            <div class="btn-row">
-              <a class="btn btn-primary" href="mailto:bryanleonard237@gmail.com?subject=QEV%20Model%20Intake%20pilot&body=Hi%20Bryan%2C%0A%0AWe%20are%20interested%20in%20a%20QEV%20Model%20Intake%20pilot.%0A%0AOrg%3A%0AModels%20we%20care%20about%3A%0AWho%20owns%20approval%20today%3A%0A">Email about a pilot</a>
-              <a class="btn btn-secondary" href="./demo.html">Try the flow first</a>
-            </div>
-          </div>
-          <div class="card">
-            <h3>What “good” looks like after a pilot</h3>
-            <ul>
-              <li>Your team can name the exact versions in use</li>
-              <li>New versions do not silently inherit old approvals</li>
-              <li>Private review notes stay private, but stay attached</li>
-              <li>Security / risk can open one package instead of five tools</li>
-              <li>You know whether a wider rollout is worth it</li>
-            </ul>
-            <h3 style="margin-top:18px;">Also useful for research partners</h3>
-            <p style="margin-bottom:0;">
-              If you care about dual-use research (commercial intake + government AI asset assurance),
-              we can scope a collaboration without pretending this is a finished standard.
-              <a href="mailto:bryanleonard237@gmail.com?subject=QEV%20research%20collaboration">Start that conversation</a>.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- HONEST -->
-    <section id="honest">
-      <div class="wrap">
-        <p class="section-kicker">Straight talk</p>
-        <h2>What QEV is not.</h2>
-        <div class="honest">
+    <section class="section" id="limits" aria-labelledby="limits-title">
+      <div class="wrap prose">
+        <p class="section-label">Straight talk</p>
+        <h2 id="limits-title">What this is not.</h2>
+        <div class="limits">
           <h3>We will not sell you a fairy tale</h3>
           <ul>
             <li>QEV does not score whether a model is “safe.”</li>
-            <li>QEV does not guarantee a supplier’s public docs are true — it records what you used.</li>
+            <li>QEV does not guarantee a supplier’s public documents are true—it records what you used.</li>
             <li>Your organization still owns testing and the final call.</li>
-            <li>We do not claim finished enterprise suite status on day one.</li>
+            <li>We do not claim finished enterprise-suite status on day one.</li>
           </ul>
         </div>
-        <p class="section-copy" style="margin-top:18px; margin-bottom:0;">
-          That honesty is deliberate. Teams adopt tools they can explain to their boss
-          without wincing. QEV’s job is the approval record — not magic judgment.
+        <p>
+          That honesty is the product. People adopt tools they can explain without wincing.
         </p>
       </div>
     </section>
 
-    <!-- FINAL CTA -->
-    <section>
-      <div class="wrap">
-        <div class="cta-band">
-          <p class="section-kicker">Next step</p>
-          <h2>If outside AI models are already in your stack, you need a record — not another hope thread.</h2>
-          <p class="section-copy" style="margin-bottom:0;">
-            Try the flow, then tell us which models and which approval path hurt most.
-            We will tell you quickly whether a pilot is a fit.
-          </p>
-          <div class="btn-row">
-            <a class="btn btn-primary" href="mailto:bryanleonard237@gmail.com?subject=QEV%20Model%20Intake">Talk about your workflow</a>
-            <a class="btn btn-secondary" href="./demo.html">Open the product demo</a>
-            <a class="btn btn-secondary" href="https://secure.imagineqira.com/">Security / sealed packages site</a>
-          </div>
+    <section class="section" id="next" aria-labelledby="next-title">
+      <div class="wrap prose">
+        <p class="section-label">Next step</p>
+        <h2 id="next-title">If outside models are already in your stack, you need a record.</h2>
+        <p>
+          Try the flow, then tell us which models and which approval path hurt most.
+          We will say quickly whether a pilot is a fit.
+        </p>
+        <div class="actions">
+          <a class="button button-primary" href="mailto:bryanleonard237@gmail.com?subject=QEV%20Model%20Intake">Talk about your workflow</a>
+          <a class="button button-secondary" href="./demo.html">Open the product demo</a>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="wrap footer-grid">
-      <div>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>
         <strong>Bryan Leonard · Qira LLC</strong><br />
-        bryanleonard237@gmail.com · 602-614-4292<br />
-        QEV Model Intake — approval records for outside AI models
-      </div>
-      <div>
-        <a href="./demo.html">Product demo</a> ·
-        <a href="./how-to-try.html">How to try</a> ·
-        <a href="https://secure.imagineqira.com/">secure.imagineqira.com</a><br />
-        Complements model hosts and registries — does not need to replace them.
-      </div>
+        <a href="mailto:bryanleonard237@gmail.com">bryanleonard237@gmail.com</a>
+        · 602-614-4292
+      </p>
+      <p>
+        <a href="./demo.html">Product demo</a>
+        · <a href="./how-to-try.html">How to try</a>
+        · <a href="https://secure.imagineqira.com/">Security site</a>
+      </p>
+      <p>
+        QEV complements model hosts and registries. It does not need to replace them.
+      </p>
     </div>
   </footer>
 </body>
